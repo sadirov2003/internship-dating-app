@@ -5,6 +5,8 @@ import '../widgets.dart/button_widget.dart';
 import '../widgets.dart/left_open_button_widget.dart';
 
 class GettingBirthdayUserScreen extends StatelessWidget {
+  const GettingBirthdayUserScreen({super.key});
+
   Widget _buildNumberTextField() {
     return TextFormField(
       inputFormatters: [
@@ -56,7 +58,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
               child: LeftOpenButtonWidget(),
             ),
             const SizedBox(height: 24.24),
-            Stack(
+            Stack( // TODO Посмотреть animated container
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -87,7 +89,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
                   const SizedBox(height: 32),
                   _buildNumberTextField(),
                   const SizedBox(height: 12),
-                  const Text(
+                  const Text( // TODO перенести весь текст в Res файл
                     'Your age will be visible to everyone',
                     style: TextStyle(
                       color: Color.fromRGBO(173, 173, 173, 1),

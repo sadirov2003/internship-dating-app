@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/app_color.dart';
 
 import '../widgets.dart/left_open_button_widget.dart';
 
@@ -11,7 +12,7 @@ class InfoGenderUser extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+        backgroundColor: AppColor.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.all(0),
           child: Column(
@@ -30,7 +31,7 @@ class InfoGenderUser extends StatelessWidget {
                   Container(
                     width: width,
                     height: 4,
-                    color: Color.fromRGBO(138, 138, 138, 1),
+                    color: const Color.fromRGBO(138, 138, 138, 1),
                   ),
 
                   /* Divider(

@@ -14,6 +14,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => StartScreenPage(),
-        '/sigin_page': (context) => SignInScreen(),
+        SignInScreen.routeName: (context) => SignInScreen(),
+        // TODO перенести в статичную переменную
         '/verification_page': (context) => VerificationScreen(),
         '/first_name_screen': (context) => GettingFirstnameUserScreen(),
         '/birthday_screen': (context) => GettingBirthdayUserScreen(),

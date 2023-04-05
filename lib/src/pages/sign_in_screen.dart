@@ -4,7 +4,11 @@ import 'package:flutter_auth_app/src/widgets.dart/button_widget.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
 class SignInScreen extends StatelessWidget {
+
+  static const routeName = "sigin_page";
+
   const SignInScreen({super.key});
+
   Widget _buildNumberTextField() {
     return TextFormField(
       inputFormatters: [

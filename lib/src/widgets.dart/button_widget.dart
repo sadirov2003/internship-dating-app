@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   final String buttomName;
   final String route;
+
   const ButtonWidget({
     required this.buttomName,
     required this.route,
@@ -18,11 +19,11 @@ class ButtonWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         child: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromRGBO(144, 144, 144, 1))),
-          onPressed: () {
-            Navigator.pushNamed(context, route);
-          },
+            backgroundColor: MaterialStateProperty.all(
+              const Color.fromRGBO(144, 144, 144, 1),
+            ),
+          ),
+          onPressed: () => Navigator.pushNamed(context, route),
           child: Text(
             buttomName,
             style: const TextStyle(
