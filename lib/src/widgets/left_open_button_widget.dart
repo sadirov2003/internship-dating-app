@@ -9,10 +9,9 @@ class LeftOpenButtonWidget extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Icon(
+      child: const Icon(
         color: Colors.black87,
         Icons.arrow_back_ios_outlined,
-        //size: 30,
       ),
     );
   }

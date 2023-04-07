@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/getting_firstname_user_page/getting_firstname_user_screen.dart';
 import 'package:flutter_auth_app/src/pages/verification_page/res.dart';
 import 'package:pinput/pinput.dart';
@@ -19,19 +20,16 @@ class VerificationScreen extends StatelessWidget {
       fontWeight: FontWeight.w600,
     ),
     decoration: BoxDecoration(
-      color: const Color.fromRGBO(249, 249, 249, 1),
-      border: Border.all(color: const Color.fromRGBO(222, 222, 222, 1)),
+      color: AppColor.textfieldColor,
+      border: Border.all(color: AppColor.pinThemeColor),
       borderRadius: BorderRadius.circular(12),
     ),
   );
-
-  
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -43,7 +41,7 @@ class VerificationScreen extends StatelessWidget {
               const Text(
                 VerificationScreenRes.titleText,
                 style: TextStyle(
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColor.blackColor,
                   fontSize: 24,
                   fontWeight: FontWeight.w800,
                 ),
@@ -52,7 +50,7 @@ class VerificationScreen extends StatelessWidget {
               const Text(
                 VerificationScreenRes.subtitleText,
                 style: TextStyle(
-                  color: Color.fromRGBO(150, 150, 150, 1),
+                  color: AppColor.verificationScreenSubtitleTextColor,
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
@@ -62,14 +60,15 @@ class VerificationScreen extends StatelessWidget {
                 length: 6,
                 defaultPinTheme: defaultPinTheme,
                 onCompleted: (pin) {
-                  Navigator.pushNamed(context, GettingFirstnameUserScreen.routeName);
+                  Navigator.pushNamed(
+                      context, GettingFirstnameUserScreen.routeName);
                 },
               ),
               const SizedBox(height: 16),
               const Text(
                 VerificationScreenRes.commentText,
                 style: TextStyle(
-                  color: Color.fromRGBO(198, 198, 198, 1),
+                  color: AppColor.verificationScreenCommentTextColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),

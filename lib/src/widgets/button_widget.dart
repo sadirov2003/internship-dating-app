@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/app_color.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String buttomName;
@@ -20,14 +21,14 @@ class ButtonWidget extends StatelessWidget {
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(144, 144, 144, 1),
+              AppColor.buttonColor,
             ),
           ),
           onPressed: () => Navigator.pushNamed(context, route),
           child: Text(
             buttomName,
             style: const TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 1),
+              color: AppColor.buttonTextColor,
               fontSize: 18,
               fontWeight: FontWeight.w400,
             ),

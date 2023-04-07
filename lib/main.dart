@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/info_gender_page/info_gender_user.dart';
 import 'package:flutter_auth_app/src/pages/info_showing_gender_page/info_showing_gender_user.dart';
 import 'package:flutter_auth_app/src/pages/sign_in_page/sign_in_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: "Manrope",
+        backgroundColor: AppColor.backgroundColor,
       ),
       routes: {
         StartScreenPage.routeName: (context) => const StartScreenPage(),

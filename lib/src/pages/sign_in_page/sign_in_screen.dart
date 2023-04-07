@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/sign_in_page/res.dart';
 import 'package:flutter_auth_app/src/pages/verification_page/verification_screen.dart';
 import 'package:flutter_auth_app/src/widgets/button_widget.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
 class SignInScreen extends StatelessWidget {
-
   static const routeName = "sign_in_page";
 
   const SignInScreen({super.key});
@@ -17,29 +17,31 @@ class SignInScreen extends StatelessWidget {
       ],
       style: const TextStyle(
         fontWeight: FontWeight.w500,
-        color: Color.fromRGBO(53, 53, 53, 1),
+        color: AppColor.textStyleTextFieldColor,
         fontSize: 16,
       ),
       keyboardType: TextInputType.phone,
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color.fromRGBO(249, 249, 249, 1),
-        focusColor: const Color.fromRGBO(249, 249, 249, 1),
+        fillColor: AppColor.textfieldColor,
+        focusColor: AppColor.textfieldColor,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromRGBO(232, 232, 232, 1)),
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromRGBO(232, 232, 232, 1)),
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
         prefix: const Text(
           '+7   ',
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: Color.fromRGBO(53, 53, 53, 1),
+            color: AppColor.textStyleTextFieldColor,
             fontSize: 16,
           ),
         ),
@@ -64,7 +66,6 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
@@ -76,7 +77,7 @@ class SignInScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w800,
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColor.blackColor,
                 ),
               ),
               const SizedBox(height: 32),
@@ -85,13 +86,15 @@ class SignInScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  color: Color.fromRGBO(107, 107, 107, 1),
+                  color: AppColor.hintTextStyleTextFieldColor,
                 ),
               ),
               const SizedBox(height: 6),
               _buildNumberTextField(),
               const SizedBox(height: 28),
-              const ButtonWidget(buttomName: SignInScreenRes.buttonText, route: VerificationScreen.routeName),
+              const ButtonWidget(
+                  buttomName: SignInScreenRes.buttonText,
+                  route: VerificationScreen.routeName),
               const SizedBox(height: 16),
               RichText(
                 text: const TextSpan(
@@ -99,7 +102,7 @@ class SignInScreen extends StatelessWidget {
                     TextSpan(
                       text: 'By clicking ‘Continue’, you agree\n to the ',
                       style: TextStyle(
-                        color: Color.fromRGBO(173, 173, 173, 1),
+                        color: AppColor.commentTextColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
@@ -107,7 +110,7 @@ class SignInScreen extends StatelessWidget {
                     TextSpan(
                       text: ' privacy police',
                       style: TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
+                        color: AppColor.blackColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
@@ -115,7 +118,7 @@ class SignInScreen extends StatelessWidget {
                     TextSpan(
                       text: ' and ',
                       style: TextStyle(
-                        color: Color.fromRGBO(173, 173, 173, 1),
+                        color: AppColor.commentTextColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
@@ -123,7 +126,7 @@ class SignInScreen extends StatelessWidget {
                     TextSpan(
                       text: 'user agreement',
                       style: TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
+                        color: AppColor.blackColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),

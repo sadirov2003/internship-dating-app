@@ -31,7 +31,9 @@ class InfoShowingGenderUser extends StatelessWidget {
                   child: LeftOpenButtonWidget(),
                 ),
                 const SizedBox(height: 24.24),
-                ProgressBarWidget(progressWidth: width, width: MediaQuery.of(context).size.width),
+                ProgressBarWidget(
+                    progressWidth: width,
+                    width: MediaQuery.of(context).size.width),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 33, 16, 16),
                   child: Column(
@@ -40,7 +42,7 @@ class InfoShowingGenderUser extends StatelessWidget {
                       const Text(
                         InfoShowingGenderScreenRes.titleText,
                         style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 0, 1),
+                          color: AppColor.inactiveButtonColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w800,
                         ),
@@ -55,7 +57,7 @@ class InfoShowingGenderUser extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             border: Border.all(
-                              color: const Color.fromRGBO(169, 169, 169, 1),
+                              color: AppColor.inactiveButtonColor,
                             ),
                           ),
                           child: const Center(
@@ -64,7 +66,7 @@ class InfoShowingGenderUser extends StatelessWidget {
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 18,
-                                  color: Color.fromRGBO(169, 169, 169, 1)),
+                                  color: AppColor.inactiveButtonColor),
                             ),
                           ),
                         ),
@@ -79,16 +81,17 @@ class InfoShowingGenderUser extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             border: Border.all(
-                              color: const Color.fromRGBO(169, 169, 169, 1),
+                              color: AppColor.inactiveButtonColor,
                             ),
                           ),
                           child: const Center(
                             child: Text(
                               InfoShowingGenderScreenRes.choiceGenderManText,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Color.fromRGBO(169, 169, 169, 1)),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18,
+                                color: AppColor.inactiveButtonColor,
+                              ),
                             ),
                           ),
                         ),
@@ -103,25 +106,28 @@ class InfoShowingGenderUser extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             border: Border.all(
-                              color: const Color.fromRGBO(0, 0, 0, 1),
+                              color: AppColor.blackColor,
                             ),
                           ),
                           child: const Center(
                             child: Text(
                               InfoShowingGenderScreenRes.choiceGenderAllText,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Color.fromRGBO(0, 0, 0, 1)),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18,
+                                color: AppColor.blackColor,
+                              ),
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height)/2.4,
+                        height: (MediaQuery.of(context).size.height) / 2.4,
                       ),
                       const ButtonWidget(
-                          buttomName: InfoShowingGenderScreenRes.buttonText, route: StartScreenPage.routeName),
+                        buttomName: InfoShowingGenderScreenRes.buttonText,
+                        route: StartScreenPage.routeName,
+                      ),
                     ],
                   ),
                 ),

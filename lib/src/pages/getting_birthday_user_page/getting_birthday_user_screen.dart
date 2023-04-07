@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/pages/getting_birthday_user_page/res.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
+import '../../app_color.dart';
 import '../../widgets/button_widget.dart';
 import '../../widgets/left_open_button_widget.dart';
 import '../../widgets/progress_bar_widget.dart';
@@ -19,7 +20,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
       ],
       style: const TextStyle(
         fontWeight: FontWeight.w500,
-        color: Color.fromRGBO(53, 53, 53, 1),
+        color: AppColor.textStyleTextFieldColor,
         fontSize: 16,
       ),
       keyboardType: TextInputType.number,
@@ -27,20 +28,20 @@ class GettingBirthdayUserScreen extends StatelessWidget {
         hintText: 'DD / MM / YYYY',
         hintStyle: const TextStyle(
           fontWeight: FontWeight.w500,
-          color: Color.fromRGBO(205, 205, 205, 1),
+          color: AppColor.gettingBirthdayUserScreenHintTextColor,
           fontSize: 16,
         ),
         filled: true,
-        fillColor: const Color.fromRGBO(249, 249, 249, 1),
-        focusColor: const Color.fromRGBO(249, 249, 249, 1),
+        fillColor: AppColor.textfieldColor,
+        focusColor: AppColor.textfieldColor,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromRGBO(232, 232, 232, 1)),
+          borderSide: const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromRGBO(232, 232, 232, 1)),
+          borderSide: const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
       ),
@@ -53,7 +54,6 @@ class GettingBirthdayUserScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,7 +72,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
                   const Text(
                     GettingBirthdayUserScreenRes.titleText,
                     style: TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 1),
+                      color: AppColor.blackColor,
                       fontSize: 24,
                       fontWeight: FontWeight.w800,
                     ),
@@ -83,7 +83,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
                   const Text( // TODO перенести весь текст в Res файл
                      GettingBirthdayUserScreenRes.commentText,
                     style: TextStyle(
-                      color: Color.fromRGBO(173, 173, 173, 1),
+                      color: AppColor.commentTextColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),

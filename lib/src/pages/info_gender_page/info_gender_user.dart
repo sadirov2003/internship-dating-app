@@ -31,7 +31,9 @@ class InfoGenderUser extends StatelessWidget {
                   child: LeftOpenButtonWidget(),
                 ),
                 const SizedBox(height: 24.24),
-                ProgressBarWidget(progressWidth: width, width: MediaQuery.of(context).size.width),
+                ProgressBarWidget(
+                    progressWidth: width,
+                    width: MediaQuery.of(context).size.width),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 33, 16, 16),
                   child: Column(
@@ -40,7 +42,7 @@ class InfoGenderUser extends StatelessWidget {
                       const Text(
                         InfoGenderScreenRes.titleText,
                         style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 0, 1),
+                          color: AppColor.blackColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w800,
                         ),
@@ -49,31 +51,31 @@ class InfoGenderUser extends StatelessWidget {
                       const Text(
                         InfoGenderScreenRes.commentText,
                         style: TextStyle(
-                          color: Color.fromRGBO(173, 173, 173, 1),
+                          color: AppColor.commentTextColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       const SizedBox(height: 30),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: () {},
                         child: Container(
                           margin: EdgeInsets.zero,
                           width: MediaQuery.of(context).size.width,
                           height: 49,
                           decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                border: Border.all(
-                                  color: const Color.fromRGBO(0, 0, 0, 1),
-                                ),
-                              ),
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: AppColor.blackColor,
+                            ),
+                          ),
                           child: const Center(
                             child: Text(
                               InfoGenderScreenRes.choiceGenderWomanText,
                               style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 18,
-                                color: Color.fromRGBO(0, 0, 0, 1)
+                                color: AppColor.blackColor,
                               ),
                             ),
                           ),
@@ -81,69 +83,70 @@ class InfoGenderUser extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: () {},
                         child: Container(
                           margin: EdgeInsets.zero,
                           width: MediaQuery.of(context).size.width,
                           height: 49,
                           decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                border: Border.all(
-                                  color: const Color.fromRGBO(169, 169, 169, 1),
-                                ),
-                              ),
-                          child: const Center(
-                            child: Text(
-                               InfoGenderScreenRes.choiceGenderManText,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                color: Color.fromRGBO(169, 169, 169, 1)
-                              ),
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: AppColor.inactiveButtonColor,
                             ),
+                          ),
+                          child: const Center(
+                            child: Text(InfoGenderScreenRes.choiceGenderManText,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+                                  color: AppColor.inactiveButtonColor,
+                                )),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height:  (MediaQuery.of(context).size.height)/2.8,
+                        height: (MediaQuery.of(context).size.height) / 2.8,
                       ),
                       ListTile(
-                      leading: Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 18,
-                            width: 18,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                color: const Color.fromRGBO(0, 0, 0, 1),
+                        leading: Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              height: 18,
+                              width: 18,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                  color: AppColor.blackColor,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.check,
+                                size: 15,
+                                color: AppColor.blackColor,
                               ),
                             ),
-                            child: const Icon(
-                              Icons.check,
-                              size: 15,
-                              color: Color.fromRGBO(0, 0, 0, 1),
+                          ),
+                        ),
+                        minLeadingWidth: 16,
+                        contentPadding: EdgeInsets.only(
+                            left: (MediaQuery.of(context).size.width) / 8),
+                        title: const Padding(
+                          padding: EdgeInsets.only(top: 5),
+                          child: Text(
+                            InfoGenderScreenRes.settingText,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              color: AppColor.blackColor,
                             ),
                           ),
                         ),
                       ),
-                      minLeadingWidth: 16,
-                      contentPadding: EdgeInsets.only(left: (MediaQuery.of(context).size.width)/8),
-                      title: const Padding(
-                        padding: EdgeInsets.only(top: 5),
-                        child: Text(
-                          InfoGenderScreenRes.settingText,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: Color.fromRGBO(0, 0, 0, 1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const ButtonWidget( buttomName: InfoGenderScreenRes.buttonText, route: InfoShowingGenderUser.routeName),
+                      const ButtonWidget(
+                          buttomName: InfoGenderScreenRes.buttonText,
+                          route: InfoShowingGenderUser.routeName),
                     ],
                   ),
                 ),
