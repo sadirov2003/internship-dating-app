@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/pages/getting_birthday_user_page/res.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
-import '../widgets.dart/button_widget.dart';
-import '../widgets.dart/left_open_button_widget.dart';
+import '../../widgets/button_widget.dart';
+import '../../widgets/left_open_button_widget.dart';
+import '../../widgets/progress_bar_widget.dart';
+import '../getting_nickname_page/getting_nickname_user.dart';
 
-class GettingNicknameUserScreen extends StatelessWidget {
+class GettingBirthdayUserScreen extends StatelessWidget {
+  const GettingBirthdayUserScreen({super.key});
+
+  static const routeName = '/birthday_screen';
+
   Widget _buildNumberTextField() {
     return TextFormField(
+      inputFormatters: [
+        MaskedInputFormatter("00 / 00 / 0000"),
+      ],
       style: const TextStyle(
         fontWeight: FontWeight.w500,
         color: Color.fromRGBO(53, 53, 53, 1),
         fontSize: 16,
       ),
-      keyboardType: TextInputType.text,
+      keyboardType: TextInputType.number,
       decoration: InputDecoration(
+        hintText: 'DD / MM / YYYY',
+        hintStyle: const TextStyle(
+          fontWeight: FontWeight.w500,
+          color: Color.fromRGBO(205, 205, 205, 1),
+          fontSize: 16,
+        ),
         filled: true,
         fillColor: const Color.fromRGBO(249, 249, 249, 1),
         focusColor: const Color.fromRGBO(249, 249, 249, 1),
@@ -29,12 +46,10 @@ class GettingNicknameUserScreen extends StatelessWidget {
       ),
     );
   }
-  
- 
 
   @override
   Widget build(BuildContext context) {
-    final width = ((MediaQuery.of(context).size.width) / 5) * 3;
+    final width = ((MediaQuery.of(context).size.width) / 6) * 2;
 
     return SafeArea(
       child: Scaffold(
@@ -48,28 +63,14 @@ class GettingNicknameUserScreen extends StatelessWidget {
               child: LeftOpenButtonWidget(),
             ),
             const SizedBox(height: 24.24),
-            Stack(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 4,
-                  color: const Color.fromRGBO(240, 240, 240, 1),
-                ),
-                Container(
-                  width: width,
-                  height: 4,
-                  color: Color.fromRGBO(138, 138, 138, 1),
-                ),
-              ],
-            ),
-            //const SizedBox(height: 33),
+            ProgressBarWidget(progressWidth: width, width: MediaQuery.of(context).size.width),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 33, 16, 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Your first name is',
+                    GettingBirthdayUserScreenRes.titleText,
                     style: TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 1),
                       fontSize: 24,
@@ -79,27 +80,17 @@ class GettingNicknameUserScreen extends StatelessWidget {
                   const SizedBox(height: 32),
                   _buildNumberTextField(),
                   const SizedBox(height: 12),
-                  const Text(
-                    'You can use A-Z, 0-9 and _. The minimum length is 5 characters',
+                  const Text( // TODO перенести весь текст в Res файл
+                     GettingBirthdayUserScreenRes.commentText,
                     style: TextStyle(
                       color: Color.fromRGBO(173, 173, 173, 1),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    'Users with whom you have not started dialogue will see your nickname instead of a real name',
-                    style: TextStyle(
-                      color: Color.fromRGBO(173, 173, 173, 1),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  const SizedBox(height: 61),
-                  
+                  const SizedBox(height: 20),
                   const ButtonWidget(
-                      buttomName: 'Next', route: '/birthday_screen'),
+                      buttomName: GettingBirthdayUserScreenRes.buttonText, route: GettingNicknameUserScreen.routeName),
                 ],
               ),
             ),

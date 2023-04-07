@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth_app/src/pages/verification_screen.dart';
-import 'package:flutter_auth_app/src/widgets.dart/button_widget.dart';
+import 'package:flutter_auth_app/src/pages/sign_in_page/res.dart';
+import 'package:flutter_auth_app/src/pages/verification_page/verification_screen.dart';
+import 'package:flutter_auth_app/src/widgets/button_widget.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
 class SignInScreen extends StatelessWidget {
 
-  static const routeName = "sigin_page";
+  static const routeName = "sign_in_page";
 
   const SignInScreen({super.key});
 
@@ -71,7 +72,7 @@ class SignInScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 76),
               const Text(
-                'Sign up or join your\n account',
+                SignInScreenRes.titleText,
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w800,
@@ -80,7 +81,7 @@ class SignInScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               const Text(
-                'Phone number',
+                SignInScreenRes.hintText,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -90,7 +91,7 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(height: 6),
               _buildNumberTextField(),
               const SizedBox(height: 28),
-              const ButtonWidget(buttomName: 'Continue', route: '/verification_page'),
+              const ButtonWidget(buttomName: SignInScreenRes.buttonText, route: VerificationScreen.routeName),
               const SizedBox(height: 16),
               RichText(
                 text: const TextSpan(

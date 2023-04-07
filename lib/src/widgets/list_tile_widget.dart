@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../pages/start_page/res.dart';
+
+
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({super.key});
 
@@ -20,9 +23,8 @@ class ListTileWidget extends StatelessWidget {
       ),
       minLeadingWidth: 16,
       title: const Text(
-        'Title title title',
+         StartScreenRes.titleText,
         style: TextStyle(
-          fontFamily: "Manrope",
           fontWeight: FontWeight.w700,
           fontSize: 18,
           color: Color.fromRGBO(0, 0, 0, 1),
@@ -30,7 +32,7 @@ class ListTileWidget extends StatelessWidget {
       ),
       minVerticalPadding: 14,
       subtitle: const Text(
-        'Nor again is there anyone who loves or pursues or desires',
+        StartScreenRes.subtitleText,
         style: TextStyle(
           fontFamily: "Manrope",
           fontWeight: FontWeight.w400,

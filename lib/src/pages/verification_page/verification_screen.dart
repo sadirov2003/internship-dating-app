@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_app/src/pages/getting_firstname_user_page/getting_firstname_user_screen.dart';
+import 'package:flutter_auth_app/src/pages/verification_page/res.dart';
 import 'package:pinput/pinput.dart';
 
-import '../widgets.dart/left_open_button_widget.dart';
+import '../../widgets/left_open_button_widget.dart';
 
 class VerificationScreen extends StatelessWidget {
-  VerificationScreen({super.key});
+  VerificationScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/verification_page';
 
   final defaultPinTheme = PinTheme(
     width: 36,
@@ -21,6 +25,8 @@ class VerificationScreen extends StatelessWidget {
     ),
   );
 
+  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,9 +41,8 @@ class VerificationScreen extends StatelessWidget {
               const LeftOpenButtonWidget(),
               const SizedBox(height: 24),
               const Text(
-                'Enter OTP code',
+                VerificationScreenRes.titleText,
                 style: TextStyle(
-  
                   color: Color.fromRGBO(0, 0, 0, 1),
                   fontSize: 24,
                   fontWeight: FontWeight.w800,
@@ -45,9 +50,8 @@ class VerificationScreen extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               const Text(
-                'SMS sent to +7 950 547 20 04',
+                VerificationScreenRes.subtitleText,
                 style: TextStyle(
-                 
                   color: Color.fromRGBO(150, 150, 150, 1),
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -57,10 +61,13 @@ class VerificationScreen extends StatelessWidget {
               Pinput(
                 length: 6,
                 defaultPinTheme: defaultPinTheme,
+                onCompleted: (pin) {
+                  Navigator.pushNamed(context, GettingFirstnameUserScreen.routeName);
+                },
               ),
               const SizedBox(height: 16),
               const Text(
-                'Get the code again in 50 seconds',
+                VerificationScreenRes.commentText,
                 style: TextStyle(
                   color: Color.fromRGBO(198, 198, 198, 1),
                   fontSize: 14,

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth_app/src/pages/sign_in_screen.dart';
-import 'package:flutter_auth_app/src/widgets.dart/list_tile_widget.dart';
+import 'package:flutter_auth_app/src/pages/start_page/res.dart';
+import 'package:flutter_auth_app/src/widgets/button_widget.dart';
+import 'package:flutter_auth_app/src/widgets/list_tile_widget.dart';
 
-import '../widgets.dart/small_button_widget.dart';
+import '../../widgets/small_button_widget.dart';
+import '../sign_in_page/sign_in_screen.dart';
 
 class StartScreenPage extends StatelessWidget {
   const StartScreenPage({super.key});
+
+  static const routeName = '/';
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class StartScreenPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  'Welcom to app name',
+                   StartScreenRes.headerText,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
@@ -38,7 +42,7 @@ class StartScreenPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Here you can',
+                   StartScreenRes.commentText,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -50,34 +54,7 @@ class StartScreenPage extends StatelessWidget {
                 const ListTileWidget(),
                 const ListTileWidget(),
                 const SizedBox(height: 55),
-                Container(
-                  margin: EdgeInsets.zero,
-                  width: MediaQuery.of(context).size.width,
-                  height: 49,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          // elevation: MaterialStateProperty.all(15),
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color.fromRGBO(144, 144, 144, 1))),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return SignInScreen();
-                        }));
-                      },
-                      child: const Text(
-                        'Sign in',
-                        style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                const ButtonWidget(buttomName: StartScreenRes.buttonText, route: SignInScreen.routeName),
                 const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
