@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/sign_in_page/res.dart';
+import 'package:flutter_auth_app/src/pages/store_page/store_page.dart';
 import 'package:flutter_auth_app/src/pages/verification_page/verification_screen.dart';
 import 'package:flutter_auth_app/src/widgets/button_widget.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
+import 'package:get_it/get_it.dart';
 
 class SignInScreen extends StatelessWidget {
   static const routeName = "sign_in_page";
+  StorePage storePage = GetIt.instance<StorePage>();
 
-  const SignInScreen({super.key});
+
+  SignInScreen({super.key});
 
   Widget _buildNumberTextField() {
     return TextFormField(
@@ -46,6 +51,9 @@ class SignInScreen extends StatelessWidget {
           ),
         ),
       ),
+      onChanged: (String inputString) {
+        storePage.phonemuber = inputString;
+      },
 
       //controller: phoneNumberTextEditingController,
       /*validator: (value) {
@@ -66,6 +74,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColor.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(

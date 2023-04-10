@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColor {
-  // TODO пенесети все цвета сюда
   static const backgroundColor = Color.fromRGBO(255, 255, 255, 1);
   static const circleButtonColor = Color.fromRGBO(217, 217, 217, 1);
   static const blackColor = Color.fromRGBO(0, 0, 0, 1);

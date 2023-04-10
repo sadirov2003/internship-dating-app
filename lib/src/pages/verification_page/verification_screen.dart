@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/getting_firstname_user_page/getting_firstname_user_screen.dart';
 import 'package:flutter_auth_app/src/pages/verification_page/res.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../widgets/left_open_button_widget.dart';
+import '../store_page/store_page.dart';
 
 class VerificationScreen extends StatelessWidget {
   VerificationScreen({Key? key}) : super(key: key);
-
   static const routeName = '/verification_page';
 
   final defaultPinTheme = PinTheme(
@@ -28,8 +30,10 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColor.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -73,6 +77,7 @@ class VerificationScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
+      
             ],
           ),
         ),

@@ -2,15 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/info_showing_gender_page/res.dart';
 import 'package:flutter_auth_app/src/pages/start_page/start_screen.dart';
+import 'package:flutter_auth_app/src/pages/store_page/store_page.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../widgets/button_widget.dart';
 import '../../widgets/left_open_button_widget.dart';
 import '../../widgets/progress_bar_widget.dart';
 
 class InfoShowingGenderUser extends StatelessWidget {
-  const InfoShowingGenderUser({super.key});
+  InfoShowingGenderUser({super.key});
 
   static const routeName = '/showing_gender_user';
+  StorePage storePage = GetIt.instance<StorePage>();
+
+  Widget choiceShowingGenderButton(
+      BuildContext context, String gender, Color color) {
+    return GestureDetector(
+      onTap: () {
+        storePage.showingGender = gender;
+      },
+      child: Container(
+        margin: EdgeInsets.zero,
+        width: MediaQuery.of(context).size.width,
+        height: 49,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(
+            color: color,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            gender,
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 18,
+              color: color,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +65,9 @@ class InfoShowingGenderUser extends StatelessWidget {
                 ),
                 const SizedBox(height: 24.24),
                 ProgressBarWidget(
-                    progressWidth: width,
-                    width: MediaQuery.of(context).size.width),
+                  progressWidth: width,
+                  width: MediaQuery.of(context).size.width,
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 33, 16, 16),
                   child: Column(
@@ -42,84 +76,28 @@ class InfoShowingGenderUser extends StatelessWidget {
                       const Text(
                         InfoShowingGenderScreenRes.titleText,
                         style: TextStyle(
-                          color: AppColor.inactiveButtonColor,
+                          color: AppColor.blackColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       const SizedBox(height: 38),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          margin: EdgeInsets.zero,
-                          width: MediaQuery.of(context).size.width,
-                          height: 49,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                              color: AppColor.inactiveButtonColor,
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              InfoShowingGenderScreenRes.choiceGenderWomanText,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: AppColor.inactiveButtonColor),
-                            ),
-                          ),
-                        ),
+                      choiceShowingGenderButton(
+                        context,
+                        InfoShowingGenderScreenRes.choiceGenderWomanText,
+                        AppColor.inactiveButtonColor,
                       ),
                       const SizedBox(height: 10),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          margin: EdgeInsets.zero,
-                          width: MediaQuery.of(context).size.width,
-                          height: 49,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                              color: AppColor.inactiveButtonColor,
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              InfoShowingGenderScreenRes.choiceGenderManText,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                color: AppColor.inactiveButtonColor,
-                              ),
-                            ),
-                          ),
-                        ),
+                      choiceShowingGenderButton(
+                        context,
+                        InfoShowingGenderScreenRes.choiceGenderManText,
+                        AppColor.inactiveButtonColor,
                       ),
                       const SizedBox(height: 10),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          margin: EdgeInsets.zero,
-                          width: MediaQuery.of(context).size.width,
-                          height: 49,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                              color: AppColor.blackColor,
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              InfoShowingGenderScreenRes.choiceGenderAllText,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                color: AppColor.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
+                      choiceShowingGenderButton(
+                        context,
+                        InfoShowingGenderScreenRes.choiceGenderAllText,
+                        AppColor.blackColor,
                       ),
                       SizedBox(
                         height: (MediaQuery.of(context).size.height) / 2.4,

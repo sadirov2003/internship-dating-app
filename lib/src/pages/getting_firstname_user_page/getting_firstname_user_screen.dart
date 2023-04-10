@@ -2,41 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/getting_birthday_user_page/getting_birthday_user_screen.dart';
 import 'package:flutter_auth_app/src/pages/getting_firstname_user_page/res.dart';
+import 'package:flutter_auth_app/src/pages/store_page/store_page.dart';
 import 'package:flutter_auth_app/src/widgets/button_widget.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../widgets/left_open_button_widget.dart';
 import '../../widgets/progress_bar_widget.dart';
 
 class GettingFirstnameUserScreen extends StatelessWidget {
-  const GettingFirstnameUserScreen({Key? key}) : super(key: key);
+  GettingFirstnameUserScreen({Key? key}) : super(key: key);
 
   static const routeName = '/first_name_screen';
+  StorePage storePage = GetIt.instance<StorePage>();
 
   Widget _buildNumberTextField() {
     return TextFormField(
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-          color: AppColor.textStyleTextFieldColor,
-          fontSize: 16,
+      style: const TextStyle(
+        fontWeight: FontWeight.w500,
+        color: AppColor.textStyleTextFieldColor,
+        fontSize: 16,
+      ),
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: AppColor.textfieldColor,
+        focusColor: AppColor.textfieldColor,
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
+          borderRadius: BorderRadius.circular(8),
         ),
-        keyboardType: TextInputType.text,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: AppColor.textfieldColor,
-          focusColor: AppColor.textfieldColor,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
-          focusedBorder: OutlineInputBorder(
-            borderSide:
-                const BorderSide(color: AppColor.textfieldBorderSideColor),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide:
-                const BorderSide(color: AppColor.textfieldBorderSideColor),
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ));
+        enabledBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      onChanged: (inputString) {
+        storePage.first_name = inputString;
+      },
+    );
   }
 
   @override
@@ -45,6 +52,7 @@ class GettingFirstnameUserScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColor.backgroundColor,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

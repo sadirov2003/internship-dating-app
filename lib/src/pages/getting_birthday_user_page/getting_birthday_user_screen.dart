@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/pages/getting_birthday_user_page/res.dart';
+import 'package:flutter_auth_app/src/pages/store_page/store_page.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../app_color.dart';
 import '../../widgets/button_widget.dart';
@@ -9,9 +11,10 @@ import '../../widgets/progress_bar_widget.dart';
 import '../getting_nickname_page/getting_nickname_user.dart';
 
 class GettingBirthdayUserScreen extends StatelessWidget {
-  const GettingBirthdayUserScreen({super.key});
+  GettingBirthdayUserScreen({super.key});
 
   static const routeName = '/birthday_screen';
+  StorePage storePage = GetIt.instance<StorePage>();
 
   Widget _buildNumberTextField() {
     return TextFormField(
@@ -37,14 +40,19 @@ class GettingBirthdayUserScreen extends StatelessWidget {
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColor.textfieldBorderSideColor),
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColor.textfieldBorderSideColor),
+          borderSide:
+              const BorderSide(color: AppColor.textfieldBorderSideColor),
           borderRadius: BorderRadius.circular(8),
         ),
       ),
+      onChanged: (inputString) {
+        storePage.birthData;
+      },
     );
   }
 
@@ -54,6 +62,7 @@ class GettingBirthdayUserScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColor.backgroundColor,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -63,7 +72,8 @@ class GettingBirthdayUserScreen extends StatelessWidget {
               child: LeftOpenButtonWidget(),
             ),
             const SizedBox(height: 24.24),
-            ProgressBarWidget(progressWidth: width, width: MediaQuery.of(context).size.width),
+            ProgressBarWidget(
+                progressWidth: width, width: MediaQuery.of(context).size.width),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 33, 16, 16),
               child: Column(
@@ -80,8 +90,9 @@ class GettingBirthdayUserScreen extends StatelessWidget {
                   const SizedBox(height: 32),
                   _buildNumberTextField(),
                   const SizedBox(height: 12),
-                  const Text( // TODO перенести весь текст в Res файл
-                     GettingBirthdayUserScreenRes.commentText,
+                  const Text(
+                    // TODO перенести весь текст в Res файл
+                    GettingBirthdayUserScreenRes.commentText,
                     style: TextStyle(
                       color: AppColor.commentTextColor,
                       fontSize: 14,
@@ -90,7 +101,8 @@ class GettingBirthdayUserScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   const ButtonWidget(
-                      buttomName: GettingBirthdayUserScreenRes.buttonText, route: GettingNicknameUserScreen.routeName),
+                      buttomName: GettingBirthdayUserScreenRes.buttonText,
+                      route: GettingNicknameUserScreen.routeName),
                 ],
               ),
             ),

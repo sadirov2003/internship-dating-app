@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_app/src/app_color.dart';
 import 'package:flutter_auth_app/src/pages/getting_nickname_page/res.dart';
 import 'package:flutter_auth_app/src/pages/info_gender_page/info_gender_user.dart';
+import 'package:flutter_auth_app/src/pages/store_page/store_page.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../widgets/button_widget.dart';
 import '../../widgets/left_open_button_widget.dart';
 import '../../widgets/progress_bar_widget.dart';
 
 class GettingNicknameUserScreen extends StatelessWidget {
-  const GettingNicknameUserScreen({Key? key}) : super(key: key);
+  GettingNicknameUserScreen({Key? key}) : super(key: key);
 
   static const routeName = '/nickname_screen';
+  StorePage storePage = GetIt.instance<StorePage>();
 
   Widget _buildNumberTextField() {
     return TextFormField(
@@ -37,6 +40,9 @@ class GettingNicknameUserScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
       ),
+      onChanged: (inputString) {
+        storePage.nickname = inputString;
+      },
     );
   }
 
@@ -46,6 +52,7 @@ class GettingNicknameUserScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColor.backgroundColor,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
