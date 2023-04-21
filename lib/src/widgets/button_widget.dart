@@ -24,7 +24,9 @@ class ButtonWidget extends StatelessWidget {
               AppColor.buttonColor,
             ),
           ),
-          onPressed: () => Navigator.pushNamed(context, route),
+          onPressed: () {
+            Navigator.pushNamed(context, route);
+          },
           child: Text(
             buttomName,
             style: const TextStyle(

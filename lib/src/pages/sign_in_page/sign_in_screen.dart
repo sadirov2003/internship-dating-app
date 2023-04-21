@@ -8,10 +8,12 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../data_providers/auth_api_provider.dart';
+
 class SignInScreen extends StatelessWidget {
   static const routeName = "sign_in_page";
   StorePage storePage = GetIt.instance<StorePage>();
-
+  AuthApiProvider authApiProvider = AuthApiProvider();
 
   SignInScreen({super.key});
 
@@ -70,8 +72,39 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
+  Widget signButton(BuildContext context, String route){
+    return Container(
+      margin: EdgeInsets.zero,
+      width: MediaQuery.of(context).size.width,
+      height: 49,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              AppColor.buttonColor,
+            ),
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, route);
+            authApiProvider.loginUser();
+          },
+          child: const Text(
+            'Continue',
+            style: TextStyle(
+              color: AppColor.buttonTextColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.backgroundColor,
@@ -101,9 +134,9 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(height: 6),
               _buildNumberTextField(),
               const SizedBox(height: 28),
-              const ButtonWidget(
-                  buttomName: SignInScreenRes.buttonText,
-                  route: VerificationScreen.routeName),
+
+              signButton(context, VerificationScreen.routeName),
+
               const SizedBox(height: 16),
               RichText(
                 text: const TextSpan(
